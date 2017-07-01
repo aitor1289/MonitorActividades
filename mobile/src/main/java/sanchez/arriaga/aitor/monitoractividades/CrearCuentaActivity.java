@@ -45,6 +45,7 @@ public class CrearCuentaActivity extends Activity {
                 usuarioBean.setUSERNAME(user.getText().toString());
                 usuarioBean.setMAIL(email.getText().toString());
                 usuarioBean.setPASSWORD(password.getText().toString());
+                usuarioBean.setROLES_ID_ROL(2);
 
                 UsuarioDaoImpl usuarioDao = new UsuarioDaoImpl(CrearCuentaActivity.this);
                 Boolean reaultado = usuarioDao.insert(usuarioBean);
