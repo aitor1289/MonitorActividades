@@ -43,7 +43,6 @@ public class CrearCuentaActivity extends Activity {
 
                 UsuarioBean usuarioBean = new UsuarioBean();
                 usuarioBean.setUSERNAME(user.getText().toString());
-                usuarioBean.setMAIL(email.getText().toString());
                 usuarioBean.setPASSWORD(password.getText().toString());
                 usuarioBean.setROLES_ID_ROL(2);
 

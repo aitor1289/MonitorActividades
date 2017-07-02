@@ -28,6 +28,15 @@ public class UsuarioBean {
     }
 
     public UsuarioBean() {
+        this.ID_USER = 1;
+        this.USERNAME = "";
+        this.PASSWORD = "";
+        this.NAME = "";
+        this.SURENAME1 = "";
+        this.SURENAME2 = "";
+        this.PHONE = "";
+        this.MAIL = "";
+        this.ROLES_ID_ROL = 1;
     }
 
     @Override

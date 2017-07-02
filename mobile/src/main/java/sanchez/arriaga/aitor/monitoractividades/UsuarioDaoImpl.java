@@ -31,9 +31,15 @@ public class UsuarioDaoImpl implements UsuarioDao {
         List<UsuarioBean> usuarioBeanList = new ArrayList<>();
 
         //USERNAME, PASSWORD, NAME, SURENAME1, SURENAME2, PHONE, MAIL, ROLES_ID_ROL
-        String[] campos = new String[]{"username", "password"};
-        String[] args = new String[]{usuarioBean.getUSERNAME(), usuarioBean.getPASSWORD()};
+        String[] campos = new String[]{
+                //"id_user",
+                "username","password","name","surename1","surename2","phone","mail","roles_id_rol"};
+        String[] args = new String[]{
+                //Integer.toString(usuarioBean.getID_USER()),
+                usuarioBean.getUSERNAME(), usuarioBean.getPASSWORD(), usuarioBean.getNAME(), usuarioBean.getSURENAME1(),
+                usuarioBean.getSURENAME2(), usuarioBean.getPHONE(), usuarioBean.getMAIL(), Integer.toString(usuarioBean.getROLES_ID_ROL())};
 
+        //Cursor c = db.rawQuery("SELECT * FROM Usuarios", null);
         Cursor c = db.query("usuarios", campos, null, args, null, null, null);
 
         //Nos aseguramos de que existe al menos un registro
@@ -41,7 +47,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
             //Recorremos el cursor hasta que no haya más registros
             do {
                 //ID_USER, USERNAME, PASSWORD, NAME, SURENAME1, SURENAME2, PHONE, MAIL, ROLES_ID_ROL
-                String ID_USER = c.getString(0);
+                //String ID_USER = c.getString(0);
                 String USERNAME = c.getString(1);
                 String PASSWORD = c.getString(2);
                 String NAME = c.getString(3);
@@ -51,7 +57,7 @@ public class UsuarioDaoImpl implements UsuarioDao {
                 String MAIL = c.getString(7);
                 String ROLES_ID_ROL = c.getString(8);
 
-                usuarioEntity.setID_USER(Integer.parseInt(ID_USER));
+                //usuarioEntity.setID_USER(Integer.parseInt(ID_USER));
                 usuarioEntity.setUSERNAME(USERNAME);
                 usuarioEntity.setPASSWORD(PASSWORD);
                 usuarioEntity.setNAME(NAME);
